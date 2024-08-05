@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <script type="module" src="js/Main.mjs"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="content">
+                <h1>Random Password Generator</h1>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label"></label>
+                <div class="control">
+                    <button class="button is-success is-outlined">Generate New Password</button>
+                </div>
+            </div>
+            <br>
+            <div class="content">
+                <h2>Settings</h2>
+            </div>
+            <div class="field">
+                <label class="label">Number of Characters</label>
+                <div class="control">
+                    <input class="input" type="number" style="width:5rem;" value="64">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Possible Characters</label>
+                <div class="control">
+                    <textarea class="textarea">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890`~!@#$%^&*()-_=+[]{}\|;:'",.<>/? </textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="content">
+                <h2>About this Password Generator</h2>
+                <p>This password generator uses the browser's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a> to generate random passwords using cryptographically strong random numbers. These random numbers are used to generate a secure password by randomly choosing characters from a list defined by the user.</p>
+                <p>When using web-based random password generators there is always a risk that the web page could submit the password to a server when the password is generated. The primary ways to verify that this is not happening is to watch the network requests in the Network tab of the console (use CTRL + SHIFT + I to open the console, then click the Network tab) and to review this application's easily reviewable codebase.</p>
+                <p>Selected settings and characters are maintained in the user's local storage so that the user's preferences are preserved between sessions. Passwords are <span class="has-text-weight-bold">never</span> maintained between sessions.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
