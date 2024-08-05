@@ -18,13 +18,13 @@
             <div class="field">
                 <label class="label">Password</label>
                 <div class="control">
-                    <input class="input" type="text">
+                    <input id="password" class="input" type="text">
                 </div>
             </div>
             <div class="field">
                 <label class="label"></label>
                 <div class="control">
-                    <button class="button is-success is-outlined">Generate New Password</button>
+                    <button id="generate-new-password-button" class="button is-success is-outlined">Generate New Password</button>
                 </div>
             </div>
             <br>
@@ -34,13 +34,13 @@
             <div class="field">
                 <label class="label">Number of Characters</label>
                 <div class="control">
-                    <input class="input" type="number" style="width:5rem;" value="64">
+                    <input id="number-of-characters" class="input" type="number" style="width:5rem;" value="32">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Possible Characters</label>
                 <div class="control">
-                    <textarea class="textarea">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890`~!@#$%^&*()-_=+[]{}\|;:'",.<>/? </textarea>
+                    <textarea id="possible-characters" class="textarea">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890`~!@#$%^&*()-_=+[]{}\|;:'",.<>/? </textarea>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="container">
             <div class="content">
                 <h2>About this Password Generator</h2>
-                <p>This password generator uses the browser's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a> to generate random passwords using cryptographically strong random numbers. These random numbers are used to generate a secure password by randomly choosing characters from a list defined by the user.</p>
+                <p>This password generator uses the browser's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a> to generate random passwords using cryptographically strong random numbers. These random numbers are then used to randomly choose characters from a list defined by the user to generate a secure password.</p>
                 <p>When using web-based random password generators there is always a risk that the web page could submit the password to a server when the password is generated. The primary ways to verify that this is not happening is to watch the network requests in the Network tab of the console (use CTRL + SHIFT + I to open the console, then click the Network tab) and to review this application's easily reviewable codebase.</p>
                 <p>Selected settings and characters are maintained in the user's local storage so that the user's preferences are preserved between sessions. Passwords are <span class="has-text-weight-bold">never</span> maintained between sessions.</p>
             </div>
