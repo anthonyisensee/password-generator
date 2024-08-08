@@ -45,14 +45,10 @@ export function addInputValidation() {
 
         if (everythingValid) {
 
-            console.log("Removing disabled attribute")
-
             generateNewPasswordButton.removeAttribute("disabled")
             
         } else {
 
-            console.log("Adding disabled attribute")
-            
             generateNewPasswordButton.setAttribute("disabled", "true")
 
         }
@@ -96,8 +92,6 @@ export function addInputValidation() {
         clearHelp(possibleCharactersTextarea)
 
         const possibleCharactersMap = getMapOfCharactersFromString(possibleCharactersTextarea.value)
-
-        console.log(possibleCharactersMap)
 
         const charactersOccurringMoreThanOnce = []
 
