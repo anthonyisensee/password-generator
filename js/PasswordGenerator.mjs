@@ -7,6 +7,26 @@ export function addPasswordGeneratorFunctionality() {
     const numberOfCharactersInput = document.getElementById("number-of-characters")
     const possibleCharactersTextarea = document.getElementById("possible-characters")
     const copyPasswordButton = document.getElementById("copy-password")
+    const togglePasswordVisibilityButton = document.getElementById("toggle-password-visibility")
+
+    // Update the password value with visibility status in mind
+    function updatePasswordValue(password) {
+
+        // Always update data value
+        passwordInput.dataset.value = password
+
+        const hiddenPasswordCharacter = "•"
+
+        // Hide the password if necessary
+        if (togglePasswordVisibilityButton.dataset.checked === "true") {
+
+            password = hiddenPasswordCharacter.repeat(password.length)
+
+        }
+
+        passwordInput.value = password
+
+    }
 
     generateNewPasswordButton.addEventListener("click", e => {
 
@@ -25,7 +45,7 @@ export function addPasswordGeneratorFunctionality() {
 
         }
 
-        passwordInput.value = password
+        updatePasswordValue(password)
 
     })
 
@@ -43,8 +63,28 @@ export function addPasswordGeneratorFunctionality() {
         
     }
     
-    copyPasswordButton.addEventListener('click', e => copyToClipboard(passwordInput.value))
+    // Enable functionality on copy to clipboard button
+    copyPasswordButton.addEventListener('click', e => copyToClipboard(passwordInput.dataset.value))
 
-    
+    // Add functionality to the password visibility button
+    togglePasswordVisibilityButton.addEventListener('click', e => {
+
+        const isChecked = togglePasswordVisibilityButton.dataset.checked === "true"
+
+        if (isChecked) {
+
+            togglePasswordVisibilityButton.dataset.checked = false
+            togglePasswordVisibilityButton.innerHTML = "Hide"
+
+        } else {
+
+            togglePasswordVisibilityButton.dataset.checked = true
+            togglePasswordVisibilityButton.innerHTML = "Show"
+
+        }
+
+        updatePasswordValue(passwordInput.dataset.value)
+
+    })    
 
 }
